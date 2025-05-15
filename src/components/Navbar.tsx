@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, X, Mic } from 'lucide-react';
@@ -94,7 +95,8 @@ export default function Navbar() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-3",
-      isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+      "bg-white dark:bg-background/80 dark:backdrop-blur-md", // Always white in light mode, transparent in dark mode
+      isScrolled && "shadow-sm"
     )}>
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -216,7 +218,7 @@ export default function Navbar() {
       
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-t shadow-lg py-4 animate-slide-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-background border-t shadow-lg py-4 animate-slide-in">
           <nav className="container mx-auto flex flex-col space-y-4">
             <Link 
               to="/products" 
