@@ -67,14 +67,19 @@
   /* Fix for any container width issues */
   .container {
     @apply mx-auto w-full;
+    max-width: 1280px;
     padding-left: 1rem;
     padding-right: 1rem;
-    max-width: 1280px;
   }
 
   /* Fixes for page width issues */
   #root {
     @apply w-full;
+  }
+  
+  main {
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 

@@ -33,7 +33,7 @@ export default function Index() {
       <Hero />
       
       {/* Featured Products Section */}
-      <div className="px-4 md:px-0">
+      <div className="container mx-auto">
         <FeaturedProducts
           title="Featured Products"
           products={featuredProducts}

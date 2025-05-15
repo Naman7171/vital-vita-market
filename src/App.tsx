@@ -43,7 +43,7 @@ const App = () => (
                 <Route
                   path="/"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <Index />
@@ -57,7 +57,7 @@ const App = () => (
                 <Route
                   path="/products"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <ProductsPage />
@@ -69,7 +69,7 @@ const App = () => (
                 <Route
                   path="/product/:id"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <ProductDetailPage />
@@ -83,7 +83,7 @@ const App = () => (
                 <Route
                   path="/checkout"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <CheckoutPage />
@@ -95,7 +95,7 @@ const App = () => (
                 <Route
                   path="/profile"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <ProfilePage />
@@ -107,7 +107,7 @@ const App = () => (
                 <Route
                   path="/wishlist"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <WishlistPage />
@@ -121,7 +121,7 @@ const App = () => (
                 <Route
                   path="/login"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <LoginPage />
@@ -133,7 +133,7 @@ const App = () => (
                 <Route
                   path="/signup"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <SignupPage />
@@ -145,7 +145,7 @@ const App = () => (
                 <Route
                   path="/forgot-password"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <ForgotPasswordPage />
@@ -157,7 +157,7 @@ const App = () => (
                 <Route
                   path="/reset-password"
                   element={
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen w-full">
                       <Navbar />
                       <main className="flex-1 w-full">
                         <ResetPasswordPage />
@@ -173,6 +173,20 @@ const App = () => (
                 <Route path="/admin/orders" element={<AdminLayout><AdminOrders /></AdminLayout>} />
                 <Route path="/admin/customers" element={<AdminLayout><AdminCustomers /></AdminLayout>} />
                 <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
+                
+                {/* About page */}
+                <Route
+                  path="/about"
+                  element={
+                    <div className="flex flex-col min-h-screen w-full">
+                      <Navbar />
+                      <main className="flex-1 w-full">
+                        <NotFound />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
                 
                 {/* Catch-all/404 route */}
                 <Route path="*" element={<NotFound />} />
