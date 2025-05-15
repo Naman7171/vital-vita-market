@@ -59,7 +59,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <ProductsPage />
                       </main>
                       <Footer />
@@ -71,7 +71,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <ProductDetailPage />
                       </main>
                       <Footer />
@@ -85,7 +85,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <CheckoutPage />
                       </main>
                       <Footer />
@@ -97,7 +97,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <ProfilePage />
                       </main>
                       <Footer />
@@ -109,7 +109,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <WishlistPage />
                       </main>
                       <Footer />
@@ -123,7 +123,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <LoginPage />
                       </main>
                       <Footer />
@@ -135,7 +135,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <SignupPage />
                       </main>
                       <Footer />
@@ -147,7 +147,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <ForgotPasswordPage />
                       </main>
                       <Footer />
@@ -159,7 +159,7 @@ const App = () => (
                   element={
                     <div className="flex flex-col min-h-screen">
                       <Navbar />
-                      <main className="flex-1 w-full pt-16">
+                      <main className="flex-1 w-full">
                         <ResetPasswordPage />
                       </main>
                       <Footer />

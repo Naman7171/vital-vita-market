@@ -58,11 +58,17 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
   
   /* Fix for any container width issues */
   .container {
-    @apply px-4 mx-auto w-full;
+    @apply mx-auto w-full;
+    padding-left: 1rem;
+    padding-right: 1rem;
     max-width: 1280px;
   }
 

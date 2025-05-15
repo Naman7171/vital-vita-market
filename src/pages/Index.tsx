@@ -33,24 +33,26 @@ export default function Index() {
       <Hero />
       
       {/* Featured Products Section */}
-      <FeaturedProducts
-        title="Featured Products"
-        products={featuredProducts}
-        loading={loading}
-        addToCart={addItem}
-        addToWishlist={toggleItem}
-        wishlist={itemIds}
-      />
-      
-      {/* Best Sellers Section */}
-      <FeaturedProducts
-        title="Best Sellers"
-        products={bestSellers}
-        loading={loading}
-        addToCart={addItem}
-        addToWishlist={toggleItem}
-        wishlist={itemIds}
-      />
+      <div className="px-4 md:px-0">
+        <FeaturedProducts
+          title="Featured Products"
+          products={featuredProducts}
+          loading={loading}
+          addToCart={addItem}
+          addToWishlist={toggleItem}
+          wishlist={itemIds}
+        />
+        
+        {/* Best Sellers Section */}
+        <FeaturedProducts
+          title="Best Sellers"
+          products={bestSellers}
+          loading={loading}
+          addToCart={addItem}
+          addToWishlist={toggleItem}
+          wishlist={itemIds}
+        />
+      </div>
     </div>
   );
 }
