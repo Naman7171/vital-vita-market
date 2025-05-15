@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, X, Mic } from 'lucide-react';
@@ -94,10 +93,10 @@ export default function Navbar() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3",
+      "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-3",
       isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
     )}>
-      <div className="container flex items-center justify-between">
+      <div className="container px-4 mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <span className="font-bold text-xl md:text-2xl text-primary">NutriHealth</span>
@@ -218,7 +217,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-background border-t shadow-lg py-4 animate-slide-in">
-          <nav className="container flex flex-col space-y-4">
+          <nav className="container px-4 mx-auto flex flex-col space-y-4">
             <Link 
               to="/products" 
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"

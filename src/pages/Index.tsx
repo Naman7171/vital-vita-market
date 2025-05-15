@@ -2,8 +2,6 @@
 import { useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
 import FeaturedProducts from '@/components/FeaturedProducts';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import { mockProducts } from '@/lib/mockData';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -30,35 +28,29 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
+    <div className="w-full">
+      {/* Hero Section */}
+      <Hero />
       
-      <main className="flex-grow pt-16">
-        {/* Hero Section */}
-        <Hero />
-        
-        {/* Featured Products Section */}
-        <FeaturedProducts
-          title="Featured Products"
-          products={featuredProducts}
-          loading={loading}
-          addToCart={addItem}
-          addToWishlist={toggleItem}
-          wishlist={itemIds}
-        />
-        
-        {/* Best Sellers Section */}
-        <FeaturedProducts
-          title="Best Sellers"
-          products={bestSellers}
-          loading={loading}
-          addToCart={addItem}
-          addToWishlist={toggleItem}
-          wishlist={itemIds}
-        />
-      </main>
+      {/* Featured Products Section */}
+      <FeaturedProducts
+        title="Featured Products"
+        products={featuredProducts}
+        loading={loading}
+        addToCart={addItem}
+        addToWishlist={toggleItem}
+        wishlist={itemIds}
+      />
       
-      <Footer />
+      {/* Best Sellers Section */}
+      <FeaturedProducts
+        title="Best Sellers"
+        products={bestSellers}
+        loading={loading}
+        addToCart={addItem}
+        addToWishlist={toggleItem}
+        wishlist={itemIds}
+      />
     </div>
   );
 }

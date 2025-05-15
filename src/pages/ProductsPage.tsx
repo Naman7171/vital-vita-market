@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { mockProducts, mockCategories } from "@/lib/mockData";
@@ -40,7 +39,7 @@ const sortOptions = [
 ];
 
 const ProductsPage = () => {
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
   const { addToWishlist, isInWishlist } = useWishlist();
   const [filters, setFilters] = useState<ProductFilters>({
     category: undefined,
@@ -445,7 +444,7 @@ const ProductsPage = () => {
                     >
                       <ProductCard 
                         product={product}
-                        addToCart={() => addToCart(product, 1)}
+                        addToCart={() => addItem(product, 1)}
                         addToWishlist={() => addToWishlist(product)} 
                         isWishlisted={isInWishlist(product.id)}
                       />

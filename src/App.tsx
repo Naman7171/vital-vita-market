@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { CartProvider } from "./context/CartContext";
@@ -19,10 +19,13 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
+import AdminCustomers from "./pages/admin/AdminCustomers";
+import AdminSettings from "./pages/admin/AdminSettings";
 import WishlistPage from "./pages/WishlistPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AdminLayout from "./pages/admin/AdminLayout";
 
 const queryClient = new QueryClient();
 
@@ -35,29 +38,145 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <main className="flex-1 pt-16">
-                  <Routes>
-                    <Route path="/" element={<Index />} />
-                    <Route path="/product/:id" element={<ProductDetailPage />} />
-                    <Route path="/products" element={<ProductsPage />} />
-                    <Route path="/checkout" element={<CheckoutPage />} />
-                    <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/wishlist" element={<WishlistPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/signup" element={<SignupPage />} />
-                    <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-                    <Route path="/reset-password" element={<ResetPasswordPage />} />
-                    <Route path="/admin" element={<AdminDashboard />} />
-                    <Route path="/admin/products" element={<AdminProducts />} />
-                    <Route path="/admin/orders" element={<AdminOrders />} />
-                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </main>
-                <Footer />
-              </div>
+              <Routes>
+                {/* Main Routes with Standard Layout */}
+                <Route
+                  path="/"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full">
+                        <Index />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                
+                {/* Product routes */}
+                <Route
+                  path="/products"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <ProductsPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/product/:id"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <ProductDetailPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                
+                {/* User account routes */}
+                <Route
+                  path="/checkout"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <CheckoutPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/profile"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <ProfilePage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/wishlist"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <WishlistPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                
+                {/* Auth routes */}
+                <Route
+                  path="/login"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <LoginPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/signup"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <SignupPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/forgot-password"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <ForgotPasswordPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                <Route
+                  path="/reset-password"
+                  element={
+                    <div className="flex flex-col min-h-screen">
+                      <Navbar />
+                      <main className="flex-1 w-full pt-16">
+                        <ResetPasswordPage />
+                      </main>
+                      <Footer />
+                    </div>
+                  }
+                />
+                
+                {/* Admin routes */}
+                <Route path="/admin" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
+                <Route path="/admin/products" element={<AdminLayout><AdminProducts /></AdminLayout>} />
+                <Route path="/admin/orders" element={<AdminLayout><AdminOrders /></AdminLayout>} />
+                <Route path="/admin/customers" element={<AdminLayout><AdminCustomers /></AdminLayout>} />
+                <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
+                
+                {/* Catch-all/404 route */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </BrowserRouter>
           </WishlistProvider>
         </CartProvider>
