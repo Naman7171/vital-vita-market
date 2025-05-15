@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, X, Mic } from 'lucide-react';
@@ -54,7 +53,6 @@ export default function Navbar() {
 
     setIsListening(true);
     
-    // Initialize speech recognition
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
     
@@ -71,7 +69,6 @@ export default function Navbar() {
         description: `Searching for: "${transcript}"`,
       });
       
-      // Navigate to products page with search term
       navigate(`/products?search=${encodeURIComponent(transcript)}`);
       setIsSearchOpen(false);
     };
@@ -94,18 +91,18 @@ export default function Navbar() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-3",
-      "bg-white dark:bg-background/80 dark:backdrop-blur-md", // Always white in light mode, transparent in dark mode
-      isScrolled && "shadow-sm"
+      "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
+      isScrolled ? "py-2" : "py-4",
+      "bg-background/95 backdrop-blur-md border-b"
     )}>
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 shrink-0">
           <span className="font-bold text-xl md:text-2xl text-primary">NutriHealth</span>
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           <Link to="/products" className="text-foreground hover:text-primary transition-colors">
             Products
           </Link>
@@ -121,11 +118,11 @@ export default function Navbar() {
         </nav>
         
         {/* Actions */}
-        <div className="flex items-center space-x-1 md:space-x-2">
+        <div className="flex items-center space-x-2">
           {/* Search */}
           <div className="relative">
             {isSearchOpen ? (
-              <form onSubmit={handleSearchSubmit} className="absolute right-0 top-0 flex items-center bg-background border rounded-md overflow-hidden animate-slide-in">
+              <form onSubmit={handleSearchSubmit} className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center bg-background border rounded-md overflow-hidden animate-in fade-in-0 slide-in-from-top-5">
                 <Input
                   type="text"
                   placeholder="Search products..."
@@ -187,7 +184,7 @@ export default function Navbar() {
             <Button variant="ghost" size="icon" className="rounded-full relative">
               <ShoppingCart className="h-5 w-5" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {totalItems}
                 </span>
               )}
@@ -218,8 +215,8 @@ export default function Navbar() {
       
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-background border-t shadow-lg py-4 animate-slide-in">
-          <nav className="container mx-auto flex flex-col space-y-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-t shadow-lg animate-in slide-in-from-top-5">
+          <nav className="container mx-auto py-4 flex flex-col space-y-4">
             <Link 
               to="/products" 
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
