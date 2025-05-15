@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, X, Mic } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ThemeToggle from './ThemeToggle';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
+import { useCart } from '@/context/CartContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,8 @@ export default function Navbar() {
   const [isListening, setIsListening] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const { toast } = useToast();
+  const { totalItems } = useCart();
+  const navigate = useNavigate();
 
   // Check if Web Speech API is available
   const speechRecognitionAvailable = 'SpeechRecognition' in window || 'webkitSpeechRecognition' in window;
@@ -28,6 +31,15 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle search submission
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchTerm.trim())}`);
+      setIsSearchOpen(false);
+    }
+  };
 
   // Start voice recognition
   const startListening = () => {
@@ -58,6 +70,10 @@ export default function Navbar() {
         title: "Voice search detected",
         description: `Searching for: "${transcript}"`,
       });
+      
+      // Navigate to products page with search term
+      navigate(`/products?search=${encodeURIComponent(transcript)}`);
+      setIsSearchOpen(false);
     };
     
     recognition.onerror = () => {
@@ -92,14 +108,14 @@ export default function Navbar() {
           <Link to="/products" className="text-foreground hover:text-primary transition-colors">
             Products
           </Link>
-          <Link to="/categories" className="text-foreground hover:text-primary transition-colors">
-            Categories
+          <Link to="/products?category=Vitamins" className="text-foreground hover:text-primary transition-colors">
+            Vitamins
           </Link>
-          <Link to="/bestsellers" className="text-foreground hover:text-primary transition-colors">
+          <Link to="/products?category=Protein" className="text-foreground hover:text-primary transition-colors">
+            Protein
+          </Link>
+          <Link to="/products?bestseller=true" className="text-foreground hover:text-primary transition-colors">
             Best Sellers
-          </Link>
-          <Link to="/about" className="text-foreground hover:text-primary transition-colors">
-            About
           </Link>
         </nav>
         
@@ -108,7 +124,7 @@ export default function Navbar() {
           {/* Search */}
           <div className="relative">
             {isSearchOpen ? (
-              <div className="absolute right-0 top-0 flex items-center bg-background border rounded-md overflow-hidden animate-slide-in">
+              <form onSubmit={handleSearchSubmit} className="absolute right-0 top-0 flex items-center bg-background border rounded-md overflow-hidden animate-slide-in">
                 <Input
                   type="text"
                   placeholder="Search products..."
@@ -126,6 +142,7 @@ export default function Navbar() {
                       "rounded-full transition-colors",
                       isListening ? "text-primary animate-pulse" : ""
                     )}
+                    type="button"
                   >
                     <Mic className="h-4 w-4" />
                   </Button>
@@ -135,10 +152,11 @@ export default function Navbar() {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsSearchOpen(false)}
+                  type="button"
                 >
                   <X className="h-4 w-4" />
                 </Button>
-              </div>
+              </form>
             ) : (
               <Button 
                 variant="ghost" 
@@ -164,18 +182,20 @@ export default function Navbar() {
           </Link>
           
           {/* Cart */}
-          <Link to="/cart">
+          <Link to="/checkout">
             <Button variant="ghost" size="icon" className="rounded-full relative">
               <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                3
-              </span>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
               <span className="sr-only">Cart</span>
             </Button>
           </Link>
           
           {/* User */}
-          <Link to="/auth">
+          <Link to="/login">
             <Button variant="ghost" size="icon" className="rounded-full">
               <User className="h-5 w-5" />
               <span className="sr-only">Account</span>
@@ -207,25 +227,39 @@ export default function Navbar() {
               Products
             </Link>
             <Link 
-              to="/categories" 
+              to="/products?category=Vitamins" 
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Categories
+              Vitamins
             </Link>
             <Link 
-              to="/bestsellers" 
+              to="/products?category=Protein" 
+              className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Protein
+            </Link>
+            <Link 
+              to="/products?bestseller=true" 
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Best Sellers
             </Link>
             <Link 
-              to="/about" 
+              to="/profile" 
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              About
+              My Account
+            </Link>
+            <Link 
+              to="/wishlist" 
+              className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Wishlist
             </Link>
           </nav>
         </div>

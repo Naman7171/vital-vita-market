@@ -11,6 +11,7 @@ interface WishlistContextType {
   toggleItem: (product: Product) => void;
   isInWishlist: (productId: string) => boolean;
   clearWishlist: () => void;
+  addToWishlist: (product: Product) => void;
 }
 
 const WishlistContext = createContext<WishlistContextType | undefined>(undefined);
@@ -48,6 +49,9 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
       });
     }
   };
+
+  // Alias for addItem to maintain compatibility with existing code
+  const addToWishlist = addItem;
 
   const removeItem = (productId: string) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== productId));
@@ -87,6 +91,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
         toggleItem,
         isInWishlist,
         clearWishlist,
+        addToWishlist,
       }}
     >
       {children}
