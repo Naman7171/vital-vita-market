@@ -155,7 +155,14 @@ const AdminProducts = () => {
       // Add new product
       const newProduct: Product = {
         id: `${Date.now()}`, // Generate simple ID
-        ...values,
+        name: values.name,
+        description: values.description,
+        price: values.price,
+        category: values.category,
+        stock: values.stock,
+        discountPercentage: values.discountPercentage,
+        featured: values.featured || false,
+        bestSeller: values.bestSeller || false,
         rating: 0,
         tags: [],
         images: ["https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"],
@@ -228,14 +235,14 @@ const AdminProducts = () => {
           </div>
           <div className="flex gap-2">
             <Select
-              value={selectedCategory || ""}
-              onValueChange={(value) => setSelectedCategory(value || null)}
+              value={selectedCategory || "all"}
+              onValueChange={(value) => setSelectedCategory(value === "all" ? null : value)}
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {mockCategories.map((category) => (
                   <SelectItem key={category} value={category}>
                     {category}

@@ -12,6 +12,8 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import ProductCard from "@/components/ProductCard";
 import { Search, Filter, Grid2X2, List, ArrowDownNarrowWide, ArrowDownWideNarrow } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 import {
   Select,
   SelectContent,
@@ -38,6 +40,8 @@ const sortOptions = [
 ];
 
 const ProductsPage = () => {
+  const { addToCart } = useCart();
+  const { addToWishlist, isInWishlist } = useWishlist();
   const [filters, setFilters] = useState<ProductFilters>({
     category: undefined,
     minPrice: 0,
@@ -439,7 +443,12 @@ const ProductsPage = () => {
                       key={product.id}
                       className="block group"
                     >
-                      <ProductCard product={product} />
+                      <ProductCard 
+                        product={product}
+                        addToCart={() => addToCart(product, 1)}
+                        addToWishlist={() => addToWishlist(product)} 
+                        isWishlisted={isInWishlist(product.id)}
+                      />
                     </Link>
                   ))}
                 </div>

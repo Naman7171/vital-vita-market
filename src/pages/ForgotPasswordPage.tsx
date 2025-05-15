@@ -28,11 +28,13 @@ const ForgotPasswordPage = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,6 +44,9 @@ const ForgotPasswordPage = () => {
 
   const onSubmit = async (values: FormValues) => {
     setIsLoading(true);
+    
+    // Save the email for display after submission
+    setSubmittedEmail(values.email);
     
     // Simulate API call
     setTimeout(() => {
@@ -74,7 +79,7 @@ const ForgotPasswordPage = () => {
                 <CheckCircle className="h-10 w-10 text-green-600" />
               </div>
               <p className="text-center text-muted-foreground">
-                We've sent a password reset link to <strong>{register().name}</strong>. Please check your email and follow the instructions to reset your password.
+                We've sent a password reset link to <strong>{submittedEmail}</strong>. Please check your email and follow the instructions to reset your password.
               </p>
               <Button
                 variant="outline"
