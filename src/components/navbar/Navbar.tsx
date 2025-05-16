@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import NavbarLogo from './NavbarLogo';
@@ -29,7 +30,8 @@ export default function Navbar() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-container",
-      "bg-white dark:bg-background/95 dark:backdrop-blur-md border-b"
+      "bg-white dark:bg-background/95 dark:backdrop-blur-md border-b shadow-sm",
+      isScrolled ? "py-2" : "py-2"
     )}>
       <div className="container px-4 mx-auto h-full flex items-center justify-between gap-4">
         {/* Logo */}

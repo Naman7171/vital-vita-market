@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -32,7 +31,7 @@ const queryClient = new QueryClient();
 const AppLayout = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-col min-h-screen w-full">
     <Navbar />
-    <main className="flex-1 w-full pt-4">
+    <main className="flex-1 w-full">
       {children}
     </main>
     <Footer />
