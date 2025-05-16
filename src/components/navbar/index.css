@@ -1,0 +1,19 @@
+
+:root {
+  --navbar-height: 60px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --navbar-height: 72px;
+  }
+}
+
+.navbar-container {
+  height: var(--navbar-height);
+}
+
+/* Add this to the global body to provide space for the fixed navbar */
+body {
+  padding-top: var(--navbar-height);
+}
