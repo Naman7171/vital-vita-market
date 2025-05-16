@@ -1,11 +1,11 @@
 
 :root {
-  --navbar-height: 60px;
+  --navbar-height: 50px;
 }
 
 @media (min-width: 768px) {
   :root {
-    --navbar-height: 72px;
+    --navbar-height: 60px;
   }
 }
 
