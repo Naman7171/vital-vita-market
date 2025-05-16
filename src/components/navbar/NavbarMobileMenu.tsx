@@ -49,6 +49,13 @@ const NavbarMobileMenu = ({ isOpen, onClose }: NavbarMobileMenuProps) => {
           My Account
         </Link>
         <Link 
+          to="/admin" 
+          className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
+          onClick={onClose}
+        >
+          Admin Dashboard
+        </Link>
+        <Link 
           to="/wishlist" 
           className="px-4 py-2 hover:bg-muted rounded-md transition-colors"
           onClick={onClose}

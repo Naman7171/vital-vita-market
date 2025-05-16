@@ -40,8 +40,8 @@ const NavbarActions = ({ isMobileMenuOpen, toggleMobileMenu }: NavbarActionsProp
         </Button>
       </Link>
       
-      {/* User */}
-      <Link to="/login">
+      {/* User - now links to profile instead of login */}
+      <Link to="/profile">
         <Button variant="ghost" size="icon" className="rounded-full">
           <User className="h-5 w-5" />
           <span className="sr-only">Account</span>
