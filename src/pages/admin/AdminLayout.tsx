@@ -1,4 +1,3 @@
-
 import { ReactNode, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -70,9 +69,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     <div className="min-h-screen flex flex-col md:flex-row bg-muted/30">
       {/* Mobile menu toggle */}
       <div className="md:hidden flex items-center justify-between p-4 border-b bg-background">
-        <Link to="/admin" className="font-bold text-xl">
-          Admin Panel
-        </Link>
+        <h1 className="font-bold text-xl">Admin Panel</h1>
         <Button
           variant="ghost"
           size="icon"
