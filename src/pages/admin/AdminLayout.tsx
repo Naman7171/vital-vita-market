@@ -68,9 +68,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-muted/30">
-      {/* Mobile menu toggle */}
+      {/* Mobile menu toggle - Removed the title from here */}
       <div className="md:hidden flex items-center justify-between p-4 border-b bg-background">
-        <h1 className="font-bold text-xl">Admin Panel</h1>
         <Button
           variant="ghost"
           size="icon"
