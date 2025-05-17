@@ -47,7 +47,12 @@ export default function Hero() {
             </Link>
             
             <Link to="/about">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/20 rounded-full px-8">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white text-white hover:bg-white/20 rounded-full px-8 shadow-sm"
+                style={{ textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)" }}
+              >
                 Learn More
               </Button>
             </Link>
