@@ -23,7 +23,7 @@ import AdminCustomers from "./pages/admin/AdminCustomers";
 import AdminSettings from "./pages/admin/AdminSettings";
 import WishlistPage from "./pages/WishlistPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-import Navbar from "./components/navbar";
+import Navbar from "./components/navbar"; // Import from the modular navbar directory
 import Footer from "./components/Footer";
 import AdminLayout from "./pages/admin/AdminLayout";
 
