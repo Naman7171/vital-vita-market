@@ -35,12 +35,7 @@ export default function Hero() {
             <Link to="/products">
               <Button 
                 size="lg" 
-                className={cn(
-                  "bg-primary hover:bg-primary/90 text-white rounded-full px-8 transition-all duration-300 transform",
-                  isHovered && "shadow-[0_0_20px_rgba(34,197,94,0.6)]"
-                )}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                className="bg-primary hover:bg-primary/90 text-white rounded-full px-8"
               >
                 Shop Now
               </Button>
@@ -50,7 +45,7 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white text-black dark:text-white hover:bg-white/20 rounded-full px-8 shadow-sm bg-white/90 dark:bg-transparent"
+                className="border-white text-white hover:bg-white/20 rounded-full px-8"
               >
                 Learn More
               </Button>
