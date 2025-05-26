@@ -23,7 +23,9 @@ import AdminCustomers from "./pages/admin/AdminCustomers";
 import AdminSettings from "./pages/admin/AdminSettings";
 import WishlistPage from "./pages/WishlistPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
-import Navbar from "./components/navbar"; // Import from the modular navbar directory
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 import AdminLayout from "./pages/admin/AdminLayout";
 
@@ -67,15 +69,16 @@ const App = () => (
                 <Route path="/forgot-password" element={<AppLayout><ForgotPasswordPage /></AppLayout>} />
                 <Route path="/reset-password" element={<AppLayout><ResetPasswordPage /></AppLayout>} />
                 
+                {/* Info pages */}
+                <Route path="/about" element={<AppLayout><AboutPage /></AppLayout>} />
+                <Route path="/contact" element={<AppLayout><ContactPage /></AppLayout>} />
+                
                 {/* Admin routes */}
                 <Route path="/admin" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
                 <Route path="/admin/products" element={<AdminLayout><AdminProducts /></AdminLayout>} />
                 <Route path="/admin/orders" element={<AdminLayout><AdminOrders /></AdminLayout>} />
                 <Route path="/admin/customers" element={<AdminLayout><AdminCustomers /></AdminLayout>} />
                 <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
-                
-                {/* About page */}
-                <Route path="/about" element={<AppLayout><NotFound /></AppLayout>} />
                 
                 {/* Catch-all/404 route */}
                 <Route path="*" element={<NotFound />} />
