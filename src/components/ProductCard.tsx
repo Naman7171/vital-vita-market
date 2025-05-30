@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '@/lib/types';
@@ -5,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
+import OptimizedImage from './OptimizedImage';
 
 interface ProductCardProps {
   product: Product;
@@ -55,10 +57,10 @@ export default function ProductCard({ product, addToCart, addToWishlist, isWishl
     >
       {/* Image container */}
       <div className="relative aspect-square overflow-hidden">
-        <img 
+        <OptimizedImage 
           src={product.images[0]} 
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full transition-transform duration-500 group-hover:scale-110"
         />
         
         {/* Badges */}

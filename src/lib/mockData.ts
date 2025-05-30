@@ -1,4 +1,3 @@
-
 import { Product, Review, User } from "./types";
 
 export const mockProducts: Product[] = [
@@ -13,8 +12,8 @@ export const mockProducts: Product[] = [
     category: "Supplements",
     tags: ["protein", "organic", "fitness"],
     images: [
-      "https://images.unsplash.com/photo-1622818425825-1c89e9a4133c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1594302954323-575daefd3c9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1622818425825-1c89e9a4133c?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1594302954323-575daefd3c9e?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: true,
     bestSeller: true,
@@ -30,8 +29,8 @@ export const mockProducts: Product[] = [
     category: "Vitamins",
     tags: ["vitamin D", "immune", "bone health"],
     images: [
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: true,
     bestSeller: false,
@@ -47,8 +46,8 @@ export const mockProducts: Product[] = [
     category: "Supplements",
     tags: ["omega-3", "heart health", "brain health"],
     images: [
-      "https://images.unsplash.com/photo-1577563672807-0070a7a1b53e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1586014758171-c41d56ef6cf5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1577563672807-0070a7a1b53e?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1586014758171-c41d56ef6cf5?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: false,
     bestSeller: true,
@@ -65,8 +64,8 @@ export const mockProducts: Product[] = [
     category: "Superfoods",
     tags: ["greens", "detox", "energy"],
     images: [
-      "https://images.unsplash.com/photo-1598733466878-41c586086e5f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1504858700536-882c978a3464?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1598733466878-41c586086e5f?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1504858700536-882c978a3464?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: true,
     bestSeller: true,
@@ -82,8 +81,8 @@ export const mockProducts: Product[] = [
     category: "Digestive Health",
     tags: ["probiotics", "gut health", "immune support"],
     images: [
-      "https://images.unsplash.com/photo-1587854680352-936b22b91030?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1582711012124-a56cf82307a0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1587854680352-936b22b91030?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1582711012124-a56cf82307a0?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: false,
     bestSeller: false,
@@ -99,8 +98,8 @@ export const mockProducts: Product[] = [
     category: "Minerals",
     tags: ["magnesium", "sleep", "stress"],
     images: [
-      "https://images.unsplash.com/photo-1616506329866-95eae3ca1b1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1625330549373-6cc803daf254?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1616506329866-95eae3ca1b1e?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1625330549373-6cc803daf254?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: false,
     bestSeller: true,
@@ -117,8 +116,8 @@ export const mockProducts: Product[] = [
     category: "Snacks",
     tags: ["protein", "vegan", "snack"],
     images: [
-      "https://images.unsplash.com/photo-1569926656779-77d4f9ade1f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1654638263368-86e3a1a4ce16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1569926656779-77d4f9ade1f8?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1654638263368-86e3a1a4ce16?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: true,
     bestSeller: false,
@@ -134,8 +133,8 @@ export const mockProducts: Product[] = [
     category: "Beauty & Wellness",
     tags: ["collagen", "skin health", "joint health"],
     images: [
-      "https://images.unsplash.com/photo-1595348020949-87cdfbb44174?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-      "https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1595348020949-87cdfbb44174?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      "https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
     ],
     featured: true,
     bestSeller: true,

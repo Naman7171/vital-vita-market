@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useCart } from "@/context/CartContext";
@@ -10,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -85,31 +85,33 @@ const ProductDetailPage = () => {
         <div className="space-y-4">
           <div className="relative overflow-hidden rounded-lg product-card">
             <AspectRatio ratio={1/1} className="bg-muted/30">
-              <img
+              <OptimizedImage
                 src={product.images[currentImageIndex]}
                 alt={product.name}
                 className="object-cover w-full h-full transition-all duration-300 hover:scale-105"
               />
               
               {/* Gallery Navigation */}
-              <div className="absolute inset-0 flex items-center justify-between px-4">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  className="rounded-full opacity-80 hover:opacity-100"
-                  onClick={prevImage}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  className="rounded-full opacity-80 hover:opacity-100"
-                  onClick={nextImage}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </div>
+              {product.images.length > 1 && (
+                <div className="absolute inset-0 flex items-center justify-between px-4">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    className="rounded-full opacity-80 hover:opacity-100"
+                    onClick={prevImage}
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    className="rounded-full opacity-80 hover:opacity-100"
+                    onClick={nextImage}
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                </div>
+              )}
               
               {/* Zoom Button */}
               <Dialog>
@@ -124,7 +126,7 @@ const ProductDetailPage = () => {
                 </DialogTrigger>
                 <DialogContent className="max-w-3xl">
                   <div className="w-full aspect-square">
-                    <img
+                    <OptimizedImage
                       src={product.images[currentImageIndex]}
                       alt={product.name}
                       className="object-contain w-full h-full"
@@ -136,25 +138,27 @@ const ProductDetailPage = () => {
           </div>
           
           {/* Thumbnails */}
-          <div className="flex space-x-2 overflow-x-auto pb-2">
-            {product.images.map((image, index) => (
-              <button
-                key={index}
-                className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-all ${
-                  currentImageIndex === index 
-                    ? "border-primary" 
-                    : "border-transparent hover:border-primary/50"
-                }`}
-                onClick={() => setCurrentImageIndex(index)}
-              >
-                <img 
-                  src={image} 
-                  alt={`${product.name} thumbnail ${index + 1}`} 
-                  className="object-cover w-full h-full"
-                />
-              </button>
-            ))}
-          </div>
+          {product.images.length > 1 && (
+            <div className="flex space-x-2 overflow-x-auto pb-2">
+              {product.images.map((image, index) => (
+                <button
+                  key={index}
+                  className={`flex-shrink-0 w-16 h-16 rounded-md overflow-hidden border-2 transition-all ${
+                    currentImageIndex === index 
+                      ? "border-primary" 
+                      : "border-transparent hover:border-primary/50"
+                  }`}
+                  onClick={() => setCurrentImageIndex(index)}
+                >
+                  <OptimizedImage 
+                    src={image} 
+                    alt={`${product.name} thumbnail ${index + 1}`} 
+                    className="object-cover w-full h-full"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Product Info */}
@@ -309,7 +313,7 @@ const ProductDetailPage = () => {
               >
                 <div className="product-card overflow-hidden rounded-lg h-full flex flex-col">
                   <div className="aspect-square overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={relatedProduct.images[0]}
                       alt={relatedProduct.name}
                       className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"

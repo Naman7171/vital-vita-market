@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { useWishlist } from '@/context/WishlistContext';
 import { useCart } from '@/context/CartContext';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Trash2, X } from 'lucide-react';
+import { ShoppingCart, Trash2, X, Heart } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const WishlistPage = () => {
   const { items, removeItem, clearWishlist } = useWishlist();
@@ -83,7 +84,7 @@ const WishlistPage = () => {
               {/* Product image */}
               <Link to={`/product/${item.id}`}>
                 <div className="aspect-square relative overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={item.images?.[0] || '/placeholder.svg'}
                     alt={item.name}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
@@ -141,5 +142,4 @@ const WishlistPage = () => {
   );
 };
 
-import { Heart } from 'lucide-react';
 export default WishlistPage;
